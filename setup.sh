@@ -76,7 +76,7 @@ kubectl apply -f srcs/yaml/influxdb.yaml
 
 kubectl apply -f srcs/yaml/phpmyadmin.yaml
 
-#kubectl exec -i $(kubectl get pods | grep mysql | cut -d" " -f1) -- mysql wordpress -u root < srcs/mysql/wordpress.sql
+kubectl exec -i $(kubectl get pods | grep mysql | cut -d" " -f1) -- mysql wordpress -u root < srcs/mysql/wordpress.sql
 case $OS in
 		"Linux")
 			sed -i "s/"172.17.0.2"/"$CLUSTER_IP"/g" ./setup.sh
